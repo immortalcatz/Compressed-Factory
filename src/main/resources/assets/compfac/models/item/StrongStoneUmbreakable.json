@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "compfac:blocks/strong_stone_umbreakable"
+    }
+}

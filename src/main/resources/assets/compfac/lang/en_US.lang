@@ -1,0 +1,19 @@
+itemGroup.CompressedFactory=Compressed Factory
+
+item.break_stone_door.name=Strong Hammer
+
+tile.casing.name=Compressor Casing
+tile.controller.name=Compressor Controller
+tile.factory_door.name=Compressor Teleporter
+tile.energy_outlet.name=Compressor Energy Outlet
+tile.item_input.name=Compressor Item Input
+tile.item_output.name=Compressor Item Output
+
+tile.energy_outlet_factory.name=Factory Energy Outlet
+tile.item_input_factory.name=Factory Item Input
+tile.item_output_factory.name=Factory Item Output
+
+tile.glowstone_umbreakable.name=Factory Glowstone
+tile.stone_door_umbreakable.name=Factory Cracked Stone
+tile.stone_umbreakable.name=Factory Stone
+tile.strong_stone_umbreakable.name=Factory Strong Stone
