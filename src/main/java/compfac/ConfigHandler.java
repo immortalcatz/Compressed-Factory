@@ -32,14 +32,14 @@ public class ConfigHandler {
 		Reference.itemBufferInventorySize = config.getInt("ItemBufferInventorySize", category, 10, 3, 54, "The number of slots in the Item buffer inventory.");
 		Reference.itemBufferStackLimit = config.getInt("ItemBufferStackLimit", category, 16, 5, 64, "The limit number of items each inventory slot can hold.");
 		
-		Reference.energyOutletCapacity = config.getInt("EnergyOutletCapacity", category, 10000, 10, 1000000000, "The capacity and max transfer rate of the Energy outlet");
+		Reference.energyOutletCapacity = config.getInt("EnergyOutletCapacity", category, 10000, 1, 1000000000, "The capacity and max transfer rate of the Energy outlet");
 		Reference.energyOutletMaxExtract = Reference.energyOutletCapacity;
 		Reference.energyOutletMaxReceive = Reference.energyOutletCapacity;
 		
 		category = "MultiBlock";
 		config.addCustomCategoryComment(category, "MultiBlock characteristics");
-		Reference.energyToCompress = config.getInt("EnergyToCompress", category, 0, 0, 1000000000, "Energy needed to compress the space and create the compressed factory");
-		Reference.energyToMaintainCompression = config.getInt("EnergyToMaintainCompression", category, 0, 0, 1000000000, "Energy needed to keep the space compressed");
+		Reference.energyToCompress = config.getInt("EnergyToCompress", category, 0, 0, 1000000000, "Energy needed to compress the space and create the compressed factory (needs to be less then the energyOutlet Capacity)");
+		Reference.energyToMaintainCompression = config.getInt("EnergyToMaintainCompression", category, 0, 0, 1000000000, "Energy needed to keep the space compressed (needs to be less then the energyOutlet Capacity)");
 		Reference.energyOutletMandatory = (Reference.energyToCompress != 0 || Reference.energyToMaintainCompression != 0);
 		
 		category = "Chat";

@@ -5,6 +5,7 @@ import compfac.blocks.BlockController;
 import compfac.blocks.BlockEnergyOutlet;
 import compfac.blocks.BlockEnergyOutletFactory;
 import compfac.blocks.BlockFactoryDoor;
+import compfac.blocks.BlockGlassUmbreakable;
 import compfac.blocks.BlockGlowstoneUmbreakable;
 import compfac.blocks.BlockItemInput;
 import compfac.blocks.BlockItemInputFactory;
@@ -40,6 +41,7 @@ public class ModBlocks {
 	//Dimension Materials
 	public static Block blockStoneUmbreakable;
 	public static Block blockGlowstoneUmbreakable;
+	public static Block blockGlassUmbreakable;
 	public static Block blockStrongStoneUmbreakable;
 	public static Block blockStoneDoorUmbreakable;
 	
@@ -66,6 +68,7 @@ public class ModBlocks {
 		//Dimension materials
 		blockStoneUmbreakable = new BlockStoneUmbreakable();
 		blockGlowstoneUmbreakable = new BlockGlowstoneUmbreakable();
+		blockGlassUmbreakable = new BlockGlassUmbreakable();
 		blockStrongStoneUmbreakable = new BlockStrongStoneUmbreakable();
 		blockStoneDoorUmbreakable = new BlockStoneDoorUmbreakable();
 		
@@ -86,6 +89,7 @@ public class ModBlocks {
 		
 		registerBlock(blockStoneUmbreakable);
 		registerBlock(blockGlowstoneUmbreakable);
+		registerBlock(blockGlassUmbreakable);
 		registerBlock(blockStrongStoneUmbreakable);
 		registerBlock(blockStoneDoorUmbreakable);
 	}
@@ -105,6 +109,7 @@ public class ModBlocks {
 		
 		registerRender(blockStoneUmbreakable);
 		registerRender(blockGlowstoneUmbreakable);
+		registerRender(blockGlassUmbreakable);
 		registerRender(blockStrongStoneUmbreakable);
 		registerRender(blockStoneDoorUmbreakable);
 	}

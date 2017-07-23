@@ -34,7 +34,8 @@ public class TheCompressedFactory{
 	private BlockPos energyOutletPos;
 	private BlockPos itemInputPos;
 	private BlockPos itemOutputPos;
-	private final IBlockState doorBlock = ModBlocks.blockStoneDoorUmbreakable.getDefaultState();
+//	private final IBlockState doorBlock = ModBlocks.blockStoneDoorUmbreakable.getDefaultState();
+	private final IBlockState doorBlock = ModBlocks.blockGlassUmbreakable.getDefaultState();
 //	private final Block stone = Blocks.STONE;
 //	private final IBlockState stoneStateUmbreakable = stone.setBlockUnbreakable().getDefaultState();
 //	private final IBlockState facHandler.getMaterialBlock().getDefaultState() = stone.getDefaultState();
@@ -366,31 +367,36 @@ public class TheCompressedFactory{
 		
 		for(int k = 1; k < y+2; k++){
 			for(int i = 0; i < x+2; i++){
-				if(!this.isFactoryPart(new BlockPos(i + cordOX, k, cordOZ + z + 1)))
+				if(!this.canBeChanged(new BlockPos(i + cordOX, k, cordOZ + z + 1)))
 						return false;
-				if(!this.isFactoryPart(new BlockPos(i + cordOX, k, cordOZ)))
+				if(!this.canBeChanged(new BlockPos(i + cordOX, k, cordOZ)))
 					return false;
 			}
 			for(int j = 0; j < z+2; j++){
-				if(!this.isFactoryPart(new BlockPos(cordOX + x + 1, k, j + cordOZ)))
+				if(!this.canBeChanged(new BlockPos(cordOX + x + 1, k, j + cordOZ)))
 					return false;
-				if(!this.isFactoryPart(new BlockPos(cordOX, k, j + cordOZ)))
+				if(!this.canBeChanged(new BlockPos(cordOX, k, j + cordOZ)))
 					return false;
 			}
 		}	
 		
 		for(int i = 0; i < x+2; i++){
 			for(int j = 0; j < z+2; j++){
-				if(!this.isFactoryPart(new BlockPos(i + cordOX, y + 1, j + cordOZ)))
+				if(!this.canBeChanged(new BlockPos(i + cordOX, y + 1, j + cordOZ)))
 					return false;
 			}
 		}
 		return true;
 	}
 
-	private boolean isFactoryPart(BlockPos blockPos) {
-		return (this.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK 
-				|| this.world.getBlockState(blockPos).getBlock() instanceof BlockFactoryPart);
+	private boolean canBeChanged(BlockPos blockPos) {
+		 boolean isFacPart = (this.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK 
+				|| this.world.getBlockState(blockPos).getBlock() instanceof BlockFactoryPart
+				|| this.world.isAirBlock(blockPos));
+		 if(!isFacPart){
+			 System.out.println("Block at " + blockPos + "is not part of factory");
+		 }
+		 return isFacPart;
 	}
 
 	private boolean sameDim(FactorySize facS) {
@@ -399,9 +405,12 @@ public class TheCompressedFactory{
 
 	public boolean adjustDim(FactorySize facS) {
 		destroySelf();
+		FactorySize tempFacSize = this.factorySize;
 		this.factorySize = facS;
-		if(!checkIfCanGenerate())
+		if(!checkIfCanGenerate()){
+			this.factorySize = tempFacSize;
 			return false;
+		}
 		generateSelf(false);
 		return true;
 	}

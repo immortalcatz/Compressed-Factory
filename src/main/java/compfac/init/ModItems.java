@@ -21,11 +21,11 @@ public class ModItems {
 	}
 	
 	private static void register(){
-		GameRegistry.register(breakStoneDoor);
+//		GameRegistry.register(breakStoneDoor);
 	}
 	
 	public static void registerRenders(){
-		registerRender(breakStoneDoor);
+//		registerRender(breakStoneDoor);
 	}
 	
 	private static void registerRender(Item item){

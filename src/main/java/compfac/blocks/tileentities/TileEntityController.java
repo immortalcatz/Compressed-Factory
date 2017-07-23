@@ -158,7 +158,7 @@ public class TileEntityController extends TileEntityCompressorBase{
 		isOn = false;
 		chunkLoad(isOn);
 		if(this.handler.destroyFactory(this.ID)){
-			this.messagePlayer(this.facInfo() + "was destroyed", 0);
+			this.messagePlayer(this.facInfo() + " was destroyed", 0);
 			return true;
 		}
 		return false;
@@ -260,8 +260,8 @@ public class TileEntityController extends TileEntityCompressorBase{
 				this.messagePlayer("Error changing Factory with Id: " + this.ID, -1);
 				this.messagePlayer("You are probably trying to reduce the size of the factory, "
 						+ "and that would make it so the walls of the factory would replace the blocks you previous put there.", -1);
-				this.messagePlayer("Return the factory to the previous size or larger, remove the blocks farther away from the"
-						+ "teleporter so that your blocks are only in the area of the factory"
+				this.messagePlayer("Return the factory to the previous size or larger, remove the blocks farther away from the "
+						+ "teleporter so that your blocks are only in the area of the factory "
 						+ "you were trying to make, and try again", -1);
 				return false;
 			}
@@ -780,7 +780,7 @@ public class TileEntityController extends TileEntityCompressorBase{
 	}
 	
 	public void messagePlayer(String msg, int lvl) {
-		if(lvl <= Reference.chatMessagesLvl)
+		if(lvl > Reference.chatMessagesLvl)
 			return;
 		if(this.player == null)
 			this.player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(this.playerUUID);

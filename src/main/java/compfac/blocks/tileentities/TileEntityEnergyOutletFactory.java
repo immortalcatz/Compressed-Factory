@@ -43,8 +43,10 @@ public class TileEntityEnergyOutletFactory extends TileEntitySyncController impl
 	
 	@Override
 	public void update(){
-		if(this.worldObj.isRemote || !this.setupWasDone()) return;
-		if(this.getController().isOff()) return;
+		if(this.worldObj.isRemote || !this.setupWasDone()) 
+			return;
+		if(this.getController().isOff()) 
+			return;
 		for (EnumFacing facing : EnumFacing.VALUES) {
 			BlockPos pos = this.pos.offset(facing);
 			TileEntity te = this.getWorld().getTileEntity(pos);

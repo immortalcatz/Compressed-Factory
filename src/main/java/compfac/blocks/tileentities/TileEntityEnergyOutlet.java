@@ -83,7 +83,6 @@ public class TileEntityEnergyOutlet extends TileEntityMultiBlockPart implements 
 			if (te.hasCapability(CapabilityEnergy.ENERGY, facing.getOpposite())) {
 				IEnergyStorage energyStorage = te.getCapability(CapabilityEnergy.ENERGY, facing.getOpposite());
 				if (energyStorage != null && energyStorage.canReceive()) {
-//					System.out.println("Am tranfering: " + TileEntityEnergyOutlet.transferEnergy(this.energy, energyStorage));
 					TileEntityEnergyOutlet.transferEnergy(this.energy, energyStorage);
 				}
 			}
