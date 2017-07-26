@@ -1,0 +1,15 @@
+[
+{
+  "modid": "compfac",
+  "name": "Compressed Factory",
+  "description": "A space managing mod where you can compress space and have a whole 11x11x11 room of space out of a 3x3x3 cube.",
+  "version": "1.0.2",
+  "mcversion": "1.10.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["PriestTheBeast"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
