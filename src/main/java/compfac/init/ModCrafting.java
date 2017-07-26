@@ -1,5 +1,6 @@
 package compfac.init;
 
+import compfac.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -10,8 +11,11 @@ public class ModCrafting {
 	public static void register(){
 //		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.cheese), "CCC","CCC","CCC",'C', ModItems.cheese);
 //		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.jar), " C ","GGG","CCC",'C',Blocks.COAL_BLOCK,'G', new ItemStack(Blocks.STAINED_GLASS,1,0));
-		
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.mbCasing), 		"ISI", "SIS", "ISI", 'I', Items.IRON_INGOT, 'S', new ItemStack(Blocks.STONE, 1, 0));
+		if(Reference.expertCasingRecipe){
+			GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.mbCasing), 	"ISI", "SIS", "ISI", 'I', Items.IRON_INGOT, 'S', new ItemStack(Blocks.STONE, 1, 0));
+		} else {
+			GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.mbCasing), 	" S ", "SIS", " S ", 'I', Items.IRON_INGOT, 'S', new ItemStack(Blocks.STONE, 1, 0));
+		}
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.mbController), 	"RCR", "CDC", "RCR", 'R', Items.REDSTONE, 'C', ModBlocks.mbCasing, 'D', Items.DIAMOND);
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.mbEnergyOutlet),"RCR", "CBC", "RCR", 'R', Items.REDSTONE, 'C', ModBlocks.mbCasing, 'B', Blocks.REDSTONE_BLOCK);
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.mbItemInput), 	"GCG", "CGC", " C ", 'G', Items.GOLD_INGOT, 'C', ModBlocks.mbCasing);

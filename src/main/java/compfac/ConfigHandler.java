@@ -36,6 +36,8 @@ public class ConfigHandler {
 		Reference.energyOutletMaxExtract = Reference.energyOutletCapacity;
 		Reference.energyOutletMaxReceive = Reference.energyOutletCapacity;
 		
+		Reference.expertCasingRecipe = config.getBoolean("ExpertCasingRecipe", category, false, "If the casing crafting recipe is in expert mode (if true the recipe will need 5 iron instead of 1)");
+		
 		category = "MultiBlock";
 		config.addCustomCategoryComment(category, "MultiBlock characteristics");
 		Reference.energyToCompress = config.getInt("EnergyToCompress", category, 0, 0, 1000000000, "Energy needed to compress the space and create the compressed factory (needs to be less then the energyOutlet Capacity)");

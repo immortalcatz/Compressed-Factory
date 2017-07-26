@@ -60,4 +60,7 @@ public class Reference {
 	//0 - reduced chat messages
 	//1 - all chat messages (default)
 	public static int chatMessagesLvl;
+	
+	// default value = false
+	public static boolean expertCasingRecipe;
 }
