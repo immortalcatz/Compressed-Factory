@@ -83,15 +83,15 @@ public class ModBlocks {
 		registerBlock(mbItemOutput);
 		registerBlock(mbFactoryDoor);
 		
-		registerBlock(energyOutletFactory);
-		registerBlock(itemInputFactory);
-		registerBlock(itemOutputFactory);
+		registerUnobtainableBlock(energyOutletFactory);
+		registerUnobtainableBlock(itemInputFactory);
+		registerUnobtainableBlock(itemOutputFactory);
 		
-		registerBlock(blockStoneUmbreakable);
-		registerBlock(blockGlowstoneUmbreakable);
-		registerBlock(blockGlassUmbreakable);
-		registerBlock(blockStrongStoneUmbreakable);
-		registerBlock(blockStoneDoorUmbreakable);
+		registerUnobtainableBlock(blockStoneUmbreakable);
+		registerUnobtainableBlock(blockGlowstoneUmbreakable);
+		registerUnobtainableBlock(blockGlassUmbreakable);
+		registerUnobtainableBlock(blockStrongStoneUmbreakable);
+		registerUnobtainableBlock(blockStoneDoorUmbreakable);
 	}
 	
 	public static void registerRenders(){
@@ -120,6 +120,10 @@ public class ModBlocks {
 		ItemBlock item = new ItemBlock(block);
 		item.setRegistryName(block.getRegistryName());
 		GameRegistry.register(item);
+	}
+	
+	private static void registerUnobtainableBlock(Block block){
+		GameRegistry.register(block);
 	}
 	
 	private static void registerRender(Block block){
